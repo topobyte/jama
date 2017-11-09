@@ -15,6 +15,7 @@ import Jama.CholeskyDecomposition;
 import Jama.EigenvalueDecomposition;
 import Jama.LUDecomposition;
 import Jama.Matrix;
+import Jama.MatrixIO;
 import Jama.QRDecomposition;
 import Jama.SingularValueDecomposition;
 
@@ -790,9 +791,9 @@ public class TestMatrix
 
 			PrintWriter FILE = new PrintWriter(
 					new FileOutputStream("JamaTestMatrix.out"));
-			A.print(FILE, fmt, 10);
+			MatrixIO.print(FILE, fmt, 10, A);
 			FILE.close();
-			R = Matrix.read(
+			R = MatrixIO.read(
 					new BufferedReader(new FileReader("JamaTestMatrix.out")));
 			if (A.minus(R).norm1() < .001) {
 				try_success("print()/read()...", "");
@@ -811,9 +812,9 @@ public class TestMatrix
 				DecimalFormat fmt = new DecimalFormat("0.0000");
 				PrintWriter FILE = new PrintWriter(
 						new FileOutputStream("JamaTestMatrix.out"));
-				A.print(FILE, fmt, 10);
+				MatrixIO.print(FILE, fmt, 10, A);
 				FILE.close();
-				R = Matrix.read(new BufferedReader(
+				R = MatrixIO.read(new BufferedReader(
 						new FileReader("JamaTestMatrix.out")));
 				if (A.minus(R).norm1() < .001) {
 					try_success("print()/read()...", "");
@@ -1066,10 +1067,12 @@ public class TestMatrix
 	private static void check(double x, double y)
 	{
 		double eps = Math.pow(2.0, -52.0);
-		if (x == 0 & Math.abs(y) < 10 * eps)
+		if (x == 0 & Math.abs(y) < 10 * eps) {
 			return;
-		if (y == 0 & Math.abs(x) < 10 * eps)
+		}
+		if (y == 0 & Math.abs(x) < 10 * eps) {
 			return;
+		}
 		if (Math.abs(x - y) > 10 * eps * Math.max(Math.abs(x), Math.abs(y))) {
 			throw new RuntimeException("The difference x-y is too large: x = "
 					+ Double.toString(x) + "  y = " + Double.toString(y));
@@ -1104,10 +1107,12 @@ public class TestMatrix
 	private static void check(Matrix X, Matrix Y)
 	{
 		double eps = Math.pow(2.0, -52.0);
-		if (X.norm1() == 0. & Y.norm1() < 10 * eps)
+		if (X.norm1() == 0. & Y.norm1() < 10 * eps) {
 			return;
-		if (Y.norm1() == 0. & X.norm1() < 10 * eps)
+		}
+		if (Y.norm1() == 0. & X.norm1() < 10 * eps) {
 			return;
+		}
 		if (X.minus(Y).norm1() > 1000 * eps * Math.max(X.norm1(), Y.norm1())) {
 			throw new RuntimeException("The norm of (X-Y) is too large: "
 					+ Double.toString(X.minus(Y).norm1()));
@@ -1153,7 +1158,7 @@ public class TestMatrix
 	{
 		// Use format Fw.d for all elements.
 		System.out.print("\n");
-		new Matrix(x, 1).print(w, d);
+		MatrixIO.print(w, d, new Matrix(x, 1));
 		print("\n");
 	}
 
