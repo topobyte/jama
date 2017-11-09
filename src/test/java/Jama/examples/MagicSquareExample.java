@@ -1,6 +1,11 @@
 package Jama.examples;
-import Jama.*;
+
 import java.util.Date;
+
+import Jama.EigenvalueDecomposition;
+import Jama.LUDecomposition;
+import Jama.Matrix;
+import Jama.QRDecomposition;
 
 /** Example of use of Matrix Class, featuring magic squares. **/
 
