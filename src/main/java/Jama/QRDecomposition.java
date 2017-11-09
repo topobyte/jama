@@ -110,8 +110,9 @@ public class QRDecomposition implements java.io.Serializable
 	public boolean isFullRank()
 	{
 		for (int j = 0; j < n; j++) {
-			if (Rdiag[j] == 0)
+			if (Rdiag[j] == 0) {
 				return false;
+			}
 		}
 		return true;
 	}

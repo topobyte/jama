@@ -1249,8 +1249,9 @@ public class Matrix implements Cloneable, java.io.Serializable
 				String s = format.format(A[i][j]); // format the number
 				int padding = Math.max(1, width - s.length()); // At _least_ 1
 																// space
-				for (int k = 0; k < padding; k++)
+				for (int k = 0; k < padding; k++) {
 					output.print(' ');
+				}
 				output.print(s);
 			}
 			output.println();
@@ -1285,10 +1286,12 @@ public class Matrix implements Cloneable, java.io.Serializable
 		java.util.Vector<Double> vD = new java.util.Vector<Double>();
 
 		// Ignore initial empty lines
-		while (tokenizer.nextToken() == StreamTokenizer.TT_EOL)
+		while (tokenizer.nextToken() == StreamTokenizer.TT_EOL) {
 			;
-		if (tokenizer.ttype == StreamTokenizer.TT_EOF)
+		}
+		if (tokenizer.ttype == StreamTokenizer.TT_EOF) {
 			throw new java.io.IOException("Unexpected EOF on matrix read.");
+		}
 		do {
 			vD.addElement(Double.valueOf(tokenizer.sval)); // Read & store 1st
 															// row.
@@ -1296,8 +1299,10 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 		int n = vD.size(); // Now we've got the number of columns!
 		double row[] = new double[n];
-		for (int j = 0; j < n; j++) // extract the elements of the 1st row.
+		// extract the elements of the 1st row.
+		for (int j = 0; j < n; j++) {
 			row[j] = vD.elementAt(j).doubleValue();
+		}
 		java.util.Vector<double[]> v = new java.util.Vector<double[]>();
 		v.addElement(row); // Start storing rows instead of columns.
 		while (tokenizer.nextToken() == StreamTokenizer.TT_WORD) {
@@ -1305,14 +1310,16 @@ public class Matrix implements Cloneable, java.io.Serializable
 			v.addElement(row = new double[n]);
 			int j = 0;
 			do {
-				if (j >= n)
+				if (j >= n) {
 					throw new java.io.IOException(
 							"Row " + v.size() + " is too long.");
+				}
 				row[j++] = Double.valueOf(tokenizer.sval).doubleValue();
 			} while (tokenizer.nextToken() == StreamTokenizer.TT_WORD);
-			if (j < n)
+			if (j < n) {
 				throw new java.io.IOException(
 						"Row " + v.size() + " is too short.");
+			}
 		}
 		int m = v.size(); // Now we've got the number of rows.
 		double[][] A = new double[m][];
