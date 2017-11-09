@@ -35,3 +35,5 @@ For older changes, see the
 * Preserved some well formatted comments using @formatter:on/off annotations
 * Added missing curly braces and @Override annotations
 * Removed unnecessary casts
+* Move I/O methods (`print()` variants and `read()`) from `Matrix` to new
+  class `MatrixIO`.
