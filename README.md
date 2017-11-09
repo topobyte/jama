@@ -24,3 +24,8 @@ The original Jama artifact available through Maven
   production release.
 * Some I/O code in the Matrix class does not work well with transpilation
   frameworks such as GWT and JSweet.
+
+## Changelog
+
+For older changes, see the
+[original changelog](https://github.com/topobyte/jama/blob/master/ChangeLog.md).
