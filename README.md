@@ -37,3 +37,4 @@ For older changes, see the
 * Removed unnecessary casts
 * Move I/O methods (`print()` variants and `read()`) from `Matrix` to new
   class `MatrixIO`.
+* Rename package from `Jama` to `jama`
