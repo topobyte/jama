@@ -29,3 +29,9 @@ The original Jama artifact available through Maven
 
 For older changes, see the
 [original changelog](https://github.com/topobyte/jama/blob/master/ChangeLog.md).
+
+* Split source code to main and test (includes example)
+* Formatted source code using Eclipse formatter
+* Preserved some well formatted comments using @formatter:on/off annotations
+* Added missing curly braces and @Override annotations
+* Removed unnecessary casts
