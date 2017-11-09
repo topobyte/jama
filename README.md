@@ -25,6 +25,20 @@ The original Jama artifact available through Maven
 * Some I/O code in the Matrix class does not work well with transpilation
   frameworks such as GWT and JSweet.
 
+## Download
+
+We provide access to our version of Jama via our own Maven repository:
+
+<https://mvn.topobyte.de>
+
+The package is available at these coordinates:
+
+    de.topobyte:jama:1.1.0
+
+You can also browse the repository online:
+
+<https://mvn.topobyte.de/de/topobyte/jama/>
+
 ## Changelog
 
 For older changes, see the
