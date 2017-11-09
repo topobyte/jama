@@ -1,4 +1,4 @@
-package Jama.test;
+package jama.test;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -11,13 +11,13 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-import Jama.CholeskyDecomposition;
-import Jama.EigenvalueDecomposition;
-import Jama.LUDecomposition;
-import Jama.Matrix;
-import Jama.MatrixIO;
-import Jama.QRDecomposition;
-import Jama.SingularValueDecomposition;
+import jama.CholeskyDecomposition;
+import jama.EigenvalueDecomposition;
+import jama.LUDecomposition;
+import jama.Matrix;
+import jama.MatrixIO;
+import jama.QRDecomposition;
+import jama.SingularValueDecomposition;
 
 /**
  * TestMatrix tests the functionality of the Jama Matrix class and associated

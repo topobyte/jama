@@ -1,6 +1,6 @@
-package Jama;
+package jama;
 
-import Jama.util.Maths;
+import jama.util.Maths;
 
 /**
  * Jama = Java Matrix class.

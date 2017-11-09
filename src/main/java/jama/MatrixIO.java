@@ -1,4 +1,4 @@
-package Jama;
+package jama;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
